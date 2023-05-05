@@ -39,6 +39,7 @@ gfm_1_B = guidedfilter(B_gray, rfm_B, r, eps)
 
 # Initial decision map
 idm = gfm_1_A > gfm_1_B
+idm = remove_blobs(idm, area)
 
 mmap = np.multiply(idm.astype(float), A_gray) + np.multiply((1 - idm), B_gray)
 
